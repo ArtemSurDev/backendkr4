@@ -1,4 +1,3 @@
-<img width="954" height="852" alt="Снимок экрана 2026-05-07 в 14 13 19" src="https://github.com/user-attachments/assets/1082d456-ca94-48b4-a415-4583817beb34" />
 # Практическая работа №19
 API для управления списком пользователей с использованием PostgreSQL и Swagger.
 ## Стек
@@ -20,8 +19,7 @@ npm start
 
 ### POST /api/users
 
-![POST](screenshots/post.png)
-
+<img width="954" height="852" alt="Снимок экрана 2026-05-07 в 14 13 19" src="https://github.com/user-attachments/assets/1082d456-ca94-48b4-a415-4583817beb34" />
 ### GET /api/users
 
 ![GET](screenshots/get-all.png)
