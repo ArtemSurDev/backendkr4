@@ -31,7 +31,7 @@ npm start
 
 ### PATCH /api/users/:id
 
-![PATCH](screenshots/patch.png)
+<img width="712" height="755" alt="Снимок экрана 2026-05-07 в 14 26 04" src="https://github.com/user-attachments/assets/14e48ce7-c176-4a74-9e90-a617de615429" />
 
 ### DELETE /api/users/:id
 
