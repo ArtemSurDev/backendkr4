@@ -27,7 +27,7 @@ npm start
 
 ### GET /api/users/:id
 
-![GET by ID](screenshots/get-by-id.png)
+<img width="950" height="690" alt="Снимок экрана 2026-05-07 в 14 24 41" src="https://github.com/user-attachments/assets/b34c7394-eca7-4001-9728-fba16d1aba83" />
 
 ### PATCH /api/users/:id
 
