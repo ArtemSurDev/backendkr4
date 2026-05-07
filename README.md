@@ -35,7 +35,7 @@ npm start
 
 ### DELETE /api/users/:id
 
-![DELETE](screenshots/delete.png)
+<img width="1066" height="730" alt="Снимок экрана 2026-05-07 в 14 27 22" src="https://github.com/user-attachments/assets/e71fad53-2a41-4840-8a98-9b78b4b94031" />
 
 ### 404 ошибка
 
