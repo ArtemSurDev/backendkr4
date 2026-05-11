@@ -125,7 +125,7 @@ practices22-23/
 
 ## Установка и запуск
 
-```bash
+bash
 docker compose up --build
 
 ## Backend серверы
