@@ -130,7 +130,8 @@ docker compose up --build
 
 ## Backend серверы
 
-Сервер	Статус
+Сервер	
+Статус
 backend1:3000	Основной
 backend2:3000	Основной
 
