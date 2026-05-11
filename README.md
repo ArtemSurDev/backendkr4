@@ -149,14 +149,19 @@ curl http://localhost/
 ## Проверка отказоустойчивости
 
 Остановить backend1
+
 docker compose stop backend1
 
 Запросы идут только на backend2
+
 curl http://localhost/
+
 {"server":"backend-2"}
 
 curl http://localhost/
+
 #{"server":"backend-2"}
 
 Вернуть backend1
+
 docker compose start backend1
