@@ -82,7 +82,7 @@ MongoDB, коллекция `users`:
 
 ### POST /api/users
 
-![POST](screenshots/post.png)
+<img width="608" height="801" alt="Снимок экрана 2026-05-11 в 15 47 10" src="https://github.com/user-attachments/assets/17125ca6-e7ee-43c7-9859-3b6ec77f5520" />
 
 ### GET /api/users
 
