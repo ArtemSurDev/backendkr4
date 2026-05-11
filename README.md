@@ -160,8 +160,17 @@ curl http://localhost/
 
 curl http://localhost/
 
-#{"server":"backend-2"}
+{"server":"backend-2"}
 
 Вернуть backend1
 
 docker compose start backend1
+
+# Тестирование HAProxy
+docker run -d --name haproxy \
+  --network practices22-23_app-network \
+  -p 8080:80 \
+  -v $(pwd)/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg \
+  haproxy:latest
+
+curl http://localhost:8080/
