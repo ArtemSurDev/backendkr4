@@ -1,3 +1,5 @@
+<img width="945" height="652" alt="Снимок экрана 2026-05-11 в 15 49 03" src="https://github.com/user-attachments/assets/46e58039-47e8-41b2-8303-2b9afe9af526" />
+<img width="945" height="652" alt="Снимок экрана 2026-05-11 в 15 49 03" src="https://github.com/user-attachments/assets/d9489daf-08fc-4a36-9b1d-6b6caa58b41a" />
 # Практическая работа №19
 API для управления списком пользователей с использованием PostgreSQL и Swagger.
 ## Стек
@@ -86,7 +88,7 @@ MongoDB, коллекция `users`:
 
 ### GET /api/users
 
-![GET](screenshots/get-all.png)
+<img width="945" height="652" alt="Снимок экрана 2026-05-11 в 15 49 03" src="https://github.com/user-attachments/assets/57cdc90a-02c8-464f-b912-56fcf3b504ae" />
 
 ### GET /api/users/:id
 
