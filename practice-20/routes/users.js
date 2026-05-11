@@ -1,0 +1,266 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const router = express.Router();
+
+const userSchema = new mongoose.Schema({
+    first_name: { type: String, required: true },
+    last_name: { type: String, required: true },
+    age: { type: Number, required: true },
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now }
+});
+
+const User = mongoose.model('User', userSchema);
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       required:
+ *         - first_name
+ *         - last_name
+ *         - age
+ *       properties:
+ *         _id:
+ *           type: string
+ *           description: Уникальный идентификатор
+ *         first_name:
+ *           type: string
+ *           description: Имя пользователя
+ *         last_name:
+ *           type: string
+ *           description: Фамилия пользователя
+ *         age:
+ *           type: integer
+ *           description: Возраст пользователя
+ *         created_at:
+ *           type: string
+ *           format: date-time
+ *           description: Время создания
+ *         updated_at:
+ *           type: string
+ *           format: date-time
+ *           description: Время обновления
+ */
+
+/**
+ * @swagger
+ * /api/users:
+ *   post:
+ *     summary: Создать нового пользователя
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - first_name
+ *               - last_name
+ *               - age
+ *             properties:
+ *               first_name:
+ *                 type: string
+ *               last_name:
+ *                 type: string
+ *               age:
+ *                 type: integer
+ *           example:
+ *             first_name: Иван
+ *             last_name: Иванов
+ *             age: 25
+ *     responses:
+ *       201:
+ *         description: Пользователь создан
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       400:
+ *         description: Ошибка валидации
+ */
+router.post('/', async (req, res) => {
+    try {
+        const { first_name, last_name, age } = req.body;
+
+        if (!first_name || !last_name || !age) {
+            return res.status(400).json({
+                error: 'Поля first_name, last_name и age обязательны'
+            });
+        }
+
+        const user = new User({
+            first_name,
+            last_name,
+            age
+        });
+
+        await user.save();
+        res.status(201).json(user);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Получить список всех пользователей
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Список пользователей
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/User'
+ */
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   get:
+ *     summary: Получить пользователя по ID
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID пользователя
+ *     responses:
+ *       200:
+ *         description: Данные пользователя
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       404:
+ *         description: Пользователь не найден
+ */
+router.get('/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+
+        if (!user) {
+            return res.status(404).json({ error: 'Пользователь не найден' });
+        }
+
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   patch:
+ *     summary: Обновить данные пользователя
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID пользователя
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               first_name:
+ *                 type: string
+ *               last_name:
+ *                 type: string
+ *               age:
+ *                 type: integer
+ *           example:
+ *             age: 30
+ *     responses:
+ *       200:
+ *         description: Пользователь обновлен
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       404:
+ *         description: Пользователь не найден
+ */
+router.patch('/:id', async (req, res) => {
+    try {
+        const { first_name, last_name, age } = req.body;
+        const updateData = { updated_at: new Date() };
+
+        if (first_name !== undefined) updateData.first_name = first_name;
+        if (last_name !== undefined) updateData.last_name = last_name;
+        if (age !== undefined) updateData.age = age;
+
+        const user = await User.findByIdAndUpdate(
+            req.params.id,
+            updateData,
+            { new: true }
+        );
+
+        if (!user) {
+            return res.status(404).json({ error: 'Пользователь не найден' });
+        }
+
+        res.json(user);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   delete:
+ *     summary: Удалить пользователя
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID пользователя
+ *     responses:
+ *       200:
+ *         description: Пользователь удален
+ *       404:
+ *         description: Пользователь не найден
+ */
+router.delete('/:id', async (req, res) => {
+    try {
+        const user = await User.findByIdAndDelete(req.params.id);
+
+        if (!user) {
+            return res.status(404).json({ error: 'Пользователь не найден' });
+        }
+
+        res.json({ message: 'Пользователь удален' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+module.exports = router;
