@@ -96,8 +96,9 @@ MongoDB, коллекция `users`:
 
 ### PATCH /api/users/:id
 
-![PATCH](screenshots/patch.png)
+<img width="550" height="586" alt="Снимок экрана 2026-05-11 в 15 52 51" src="https://github.com/user-attachments/assets/29d9fdc6-0df1-44c0-aebb-2aee9e425fac" />
 
 ### DELETE /api/users/:id
 
-![DELETE](screenshots/delete.png)
+<img width="1099" height="742" alt="Снимок экрана 2026-05-11 в 15 53 40" src="https://github.com/user-attachments/assets/8abbba97-50e9-4937-9b5a-be44343ef5fa" />
+
