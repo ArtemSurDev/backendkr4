@@ -137,10 +137,10 @@ backend2:3000	Основной
 ## Проверка отказоустойчивости
 
 curl http://localhost/
-# {"message":"Response from backend server","server":"backend-1","timestamp":"..."}
+{"message":"Response from backend server","server":"backend-1","timestamp":"..."}
 
 curl http://localhost/
-# {"message":"Response from backend server","server":"backend-2","timestamp":"..."}
+{"message":"Response from backend server","server":"backend-2","timestamp":"..."}
 
 curl http://localhost/
-# {"message":"Response from backend server","server":"backend-1","timestamp":"..."}
+{"message":"Response from backend server","server":"backend-1","timestamp":"..."}
