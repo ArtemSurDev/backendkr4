@@ -37,3 +37,65 @@ npm start
 
 <img width="1066" height="730" alt="Снимок экрана 2026-05-07 в 14 27 22" src="https://github.com/user-attachments/assets/e71fad53-2a41-4840-8a98-9b78b4b94031" />
 
+# Практическая работа №20
+
+API для управления списком пользователей с использованием MongoDB и Swagger.
+
+## Стек
+
+- Node.js + Express
+- MongoDB + Mongoose
+- Swagger UI
+
+## Установка и запуск
+
+npm install
+npm start
+
+Сервер: http://localhost:3000
+Swagger: http://localhost:3000/api-docs
+
+## База данных
+
+MongoDB, коллекция `users`:
+
+| Поле | Тип | Описание |
+|---|---|---|
+| _id | ObjectId | Уникальный идентификатор |
+| first_name | String | Имя |
+| last_name | String | Фамилия |
+| age | Number | Возраст |
+| created_at | Date | Время создания |
+| updated_at | Date | Время обновления |
+
+## API эндпоинты
+
+| Метод | Адрес | Описание |
+|---|---|---|
+| POST | /api/users | Создать пользователя |
+| GET | /api/users | Список пользователей |
+| GET | /api/users/:id | Пользователь по ID |
+| PATCH | /api/users/:id | Обновить пользователя |
+| DELETE | /api/users/:id | Удалить пользователя |
+
+## Скриншоты
+
+### POST /api/users
+
+![POST](screenshots/post.png)
+
+### GET /api/users
+
+![GET](screenshots/get-all.png)
+
+### GET /api/users/:id
+
+![GET by ID](screenshots/get-by-id.png)
+
+### PATCH /api/users/:id
+
+![PATCH](screenshots/patch.png)
+
+### DELETE /api/users/:id
+
+![DELETE](screenshots/delete.png)
