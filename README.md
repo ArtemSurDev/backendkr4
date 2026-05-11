@@ -92,7 +92,7 @@ MongoDB, коллекция `users`:
 
 ### GET /api/users/:id
 
-![GET by ID](screenshots/get-by-id.png)
+<img width="823" height="610" alt="Снимок экрана 2026-05-11 в 15 51 34" src="https://github.com/user-attachments/assets/fe24bcc4-b01c-4145-b808-6fb650326a84" />
 
 ### PATCH /api/users/:id
 
