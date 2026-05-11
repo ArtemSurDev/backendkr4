@@ -100,3 +100,36 @@ MongoDB, коллекция `users`:
 
 <img width="1099" height="742" alt="Снимок экрана 2026-05-11 в 15 53 40" src="https://github.com/user-attachments/assets/8abbba97-50e9-4937-9b5a-be44343ef5fa" />
 
+# Практические работы №22-23
+
+Балансировка нагрузки с Nginx, HAProxy и Docker Compose.
+
+## Стек
+
+- Node.js + Express
+- Nginx (балансировщик)
+- HAProxy (альтернативный балансировщик)
+- Docker + Docker Compose
+
+## Структура проекта
+
+practices22-23/
+├── docker-compose.yml
+├── nginx.conf
+├── backend/
+│ ├── Dockerfile
+│ ├── package.json
+│ └── server.js
+└── haproxy/
+└── haproxy.cfg
+
+## Установка и запуск
+
+```bash
+docker compose up --build
+
+## Backend серверы
+
+Сервер	Статус
+backend1:3000	Основной
+backend2:3000	Основной
