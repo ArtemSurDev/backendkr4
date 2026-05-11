@@ -1,0 +1,29 @@
+{
+  "name": "backendkr4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtemSurDev/backendkr4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ArtemSurDev/backendkr4/issues"
+  },
+  "homepage": "https://github.com/ArtemSurDev/backendkr4#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.20.0",
+    "sequelize": "^6.37.8",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
